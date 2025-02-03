@@ -1,0 +1,138 @@
+body {
+    height: 100%;
+    color: #EAEAEA;
+    font-family: monospace;
+    background: linear-gradient(to top right, #0B0B0D, #09122C);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: none;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-size: xx-large;
+    padding: 50px;
+}
+
+h2 {
+    font-size: x-large;
+    padding: 20px;
+}
+
+#mouse-pointer {
+    width: 20px;
+    height: 20px;
+    background-color: #EAEAEA;
+    clip-path: polygon(50% 0, 90% 100%, 50% 80%, 10% 100%);
+    transform: rotate(-30deg);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    opacity: 100%;
+    display: none;
+}
+
+.view-container {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 500px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+input {
+    height: 40px;
+    margin: 8px 0px 8px 0px;
+    border: 0px;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.4s ease;
+}
+
+input.books-count-input,
+input.book-data-input {
+    width: 280px;
+    color: #0B0B0D;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    width: 120px;
+    color: #0B0B0D;
+    cursor: pointer;
+}
+
+.input-title {
+    margin-right: 10px;
+}
+
+.input-element {
+    display: flex;
+}
+
+.validation-image {
+    height: 25px;
+    position: absolute;
+    transform: translate(-35px, 16px);
+    background-size: contain;
+    display: none;
+}
+
+#input-form-table td {
+    font-size: large;
+}
+
+#input-form-table tr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#data-input-view {
+    display: none;
+}
+
+#books-data-table tr {
+    border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
+#books-data-table th,
+#books-data-table td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #EAEAEA;
+}
+
+#books-data-table th {
+    text-align: center;
+}
+
+.data-edit-button,
+.data-delete-button {
+    color: #0B0B0D;
+    width: 80px;
+    height: 40px;
+    border: 0;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #EAEAEA;
+    cursor: pointer;
+}
+
+.book-data-edit {
+    width: 160px;
+    padding-left: 10px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html5>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./resources/book.svg">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Library System</title>
+</head>
+
+<body>
+    <div id="mouse-pointer"></div>
+    <h1>Library Management System</h1>
+    <div id="books-count-view" class="view-container">
+        <h2>How many books would you like to register?</h2>
+        <form>
+            <div class="input-element">
+                <input class="books-count-input" type="text" id="0" name="booksCount" onchange="validateInput(this)"
+                    placeholder="Ex: 10">
+                <img class="validation-image" src="" alt="Validation Image">
+            </div>
+            <input id="submit-books-count-button" type="submit" onclick="submitBooksCount(event)">
+        </form>
+    </div>
+    <div id="data-input-view" class="view-container">
+        <h2>Enter books data</h2>
+        <form action="./view.html" method="get">
+            <table id="input-form-table">
+                <tbody>
+                    <tr>
+                        <td class="input-title">Book Name: </td>
+                        <td><input class="book-data-input" type="text" id="1" name="bookName"
+                                onchange="validateInput(this, 1)" placeholder="Ex: JavaScript: The Definitive Guide">
+                            <img class="validation-image" src="" alt="Validation Image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="input-title">Book Price: </td>
+                        <td><input class="book-data-input" type="text" id="2" name="bookPrice"
+                                onchange="validateInput(this, 0)" placeholder="Ex: 50$">
+                            <img class="validation-image" src="" alt="Validation Image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="input-title">Publish Date: </td>
+                        <td><input class="book-data-input" type="text" id="3" name="bookPublishDate"
+                                onchange="validateInput(this, 3)" placeholder="Ex: 31-01-2025">
+                            <img class="validation-image" src="" alt="Validation Image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="input-title">Author Name: </td>
+                        <td><input class="book-data-input" type="text" id="4" name="bookAuthor"
+                                onchange="validateInput(this, 1)" placeholder="Ex: David Flanagan">
+                            <img class="validation-image" src="" alt="Validation Image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="input-title">Author Email: </td>
+                        <td><input class="book-data-input" type="text" id="5" name="authorEmail"
+                                onchange="validateInput(this, 2)" placeholder="Ex: david.flanagan@example.com">
+                            <img class="validation-image" src="" alt="Validation Image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" onclick="submitBookData(event)"></td>
+                        <td><input type="reset" onclick="resetFields()"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
