@@ -4,7 +4,7 @@ let inputValidationStatus = [false, false, false, false, false];
 let currentBooksCounter = 0;
 let booksTotalNumber = 0;
 let booksData = [];
-////////////////////////////////////////////
+
 (function () {
     const mouseDivElement = document.getElementById("mouse-pointer");
     document.body.addEventListener("mousemove", ({ pageX: xCoord, pageY: yCoord }) => {
@@ -81,21 +81,23 @@ window.submitBooksCount = function (submitEvent) {
 }
 
 window.submitBookData = function (submitEvent) {
-    if (currentBooksCounter !== (booksTotalNumber - 1)) {
-        submitEvent.preventDefault();
+    submitEvent.preventDefault();
 
-        const inputElements = document.getElementsByClassName("book-data-input");
-        inputValidationStatus[0] = validateInput(inputElements[0], 1);
-        inputValidationStatus[1] = validateInput(inputElements[1], 0);
-        inputValidationStatus[2] = validateInput(inputElements[2], 3);
-        inputValidationStatus[3] = validateInput(inputElements[3], 1);
-        inputValidationStatus[4] = validateInput(inputElements[4], 2);
+    const inputElements = document.getElementsByClassName("book-data-input");
+    inputValidationStatus[0] = validateInput(inputElements[0], 1);
+    inputValidationStatus[1] = validateInput(inputElements[1], 0);
+    inputValidationStatus[2] = validateInput(inputElements[2], 3);
+    inputValidationStatus[3] = validateInput(inputElements[3], 1);
+    inputValidationStatus[4] = validateInput(inputElements[4], 2);
 
-        if (inputValidationStatus.every((validation) => { return validation === true })) {
-            getBookData();
-            resetFields();
-            console.log("A book has been registered");
-        }
+    if (inputValidationStatus.every((validation) => { return validation === true })) {
+        getBookData();
+        resetFields();
+        console.log("A book has been registered");
+    }
+
+    if (currentBooksCounter === booksTotalNumber) {
+        window.location.href = "./view.html";
     }
 }
 
@@ -177,8 +179,13 @@ window.submitBookDataEdit = function (offset) {
     if (inputValidationStatus.every((validation) => { return validation === true })) {
         const rowElement = document.getElementById(`row-${offset}`);
 
+        localStorage[`bookData-${offset}-bookName`] = inputElements[0].value;
+        localStorage[`bookData-${offset}-bookPrice`] = inputElements[1].value;
+        localStorage[`bookData-${offset}-bookPublishDate`] = inputElements[2].value;
+        localStorage[`bookData-${offset}-authorName`] = inputElements[3].value;
+        localStorage[`bookData-${offset}-authorEmail`] = inputElements[4].value;
+
         Array.from(rowElement.children).slice(0, 5).forEach((child) => {
-            console.log();
             child.textContent = `${child.children[0].value}`;
         });
 
